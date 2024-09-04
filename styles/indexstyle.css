@@ -1,0 +1,85 @@
+/*  Preloader */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+svg {
+  display: block;
+  width: 258px;
+  height: 258px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.preloader-body {
+  background-color: #0a2342;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.tree {
+  fill: #fdfdfd;
+}
+
+.circle-mask {
+  transform-origin: 50% 90%;
+  animation: scale 5s infinite ease-out;
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  7%,
+  93% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* loading text */
+
+.loading {
+  position: relative;
+  margin-top: 250px;
+  font-size: 4rem;
+  color: #0a2342;
+  font-weight: bold;
+  -webkit-text-stroke: 0.1vw #c0c0c0;
+  text-transform: uppercase;
+}
+
+.loading::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  color: #fdfdfd;
+  -webkit-text-stroke: 0vw #c0c0c0;
+  border-right: 2px solid #fdfdfd;
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
